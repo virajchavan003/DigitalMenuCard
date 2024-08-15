@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style1.css">
+    <title>Raj chinise center</title>
+</head>
+
+<body>
+    <!-- navbar start  -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Raj Chinise center <br>& Biryani</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar ends  -->
+    <div class="container my-4">
+        <!-- form start   -->
+        <form action="" method="post" name="order">
+            <div class="image">
+                <img src="images/photo39.jpg" alt="" srcset="">
+            </div>
+            <input type="text" class="form-control"  aria-describedby="emailHelp" id="item"
+                value="Mashroom Shanghai" name="item" readonly>
+            <input type="number" class="form-control"  aria-describedby="emailHelp"
+                placeholder="Enter table number" id="table" name="table">
+            <input type="number" class="form-control"  aria-describedby="emailHelp"
+                placeholder="Quntity" id="quntity" name="quntity">
+            <select class="form-control" id="half-full" name="half-full">
+                <option value="Half">Half</option>
+                <option value="Full">Full</option>
+            </select>
+           
+            <input type="text" id="datetime" style="width: 80%;text-align: center; display: none;" name="datetime" >
+            <input type="text" value="130/230" name="amount" style="display: none;">
+            <input type="submit" class="btn btn-dark btn-lg btn-block" id="clickbtn" value="Order">
+        </form>
+        <!-- foem ends  -->
+    </div>
+
+    <script>
+        var date = new Date();
+	var current_date = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear() +"  "+date.getHours()+":"+date.getMinutes()+":"+ date.getSeconds();;
+    document.getElementById('datetime').value = current_date;
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwSB6frCs8Ln4mA5DnyOTH024xaS5K7-iy4k5GTtJuSE49Fege4PqzfJnsOHifRuGci/exec'
+    const form = document.forms['order']
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        
+    })
+        let btn = document.getElementById('clickbtn');
+        btn.addEventListener("click", fun)
+        function fun() {
+            btn.style.background = "green";
+            btn.innerHTML = "Order placed";
+           let name = document.getElementById("item").value;
+           let table = document.getElementById("table").value;
+           let quntity = document.getElementById("quntity").value;
+           let halffull = document.getElementById("half-full").value;
+        //    let vegnonveg = document.getElementById("veg-nonveg").value;
+           let msg = 
+            `*Item* =${name}%0a *table* *no* = ${table}%0a *quntity* = ${quntity}%0a *half/full* = ${halffull}`;
+
+            let url = 'https://wa.me/918605935547?text='+msg;
+            window.open(url,'_blank').focus();
+        }
+
+       
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

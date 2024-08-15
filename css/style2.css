@@ -1,0 +1,41 @@
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img{
+    width: 110px;
+    height: 110px;
+    margin: 10px 10px;
+}
+.container h3,h6{
+    text-align: center;
+}
+.menber{
+   
+   margin: 5px 0;
+    display: flex;
+    justify-content: space-around;
+  
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menber img{
+    
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.member{
+    width: 17rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px 15px;
+    box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.7);
+}
+.menber h4{
+    text-align: center;
+}

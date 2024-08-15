@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    
+}
+.image img{
+    margin: 0 auto;
+    width: 30%;
+    height: 30%;
+    border-radius: 20px;
+}
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form input{
+    margin: 10px auto;
+}
+form h3{
+    text-align: center;
+    margin: 5px auto;
+}
+select{
+    margin: 5px 0;
+}
